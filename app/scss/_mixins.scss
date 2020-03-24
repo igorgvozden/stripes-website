@@ -1,0 +1,9 @@
+@mixin content-width {
+  padding: 0 9em;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+@mixin tablet-width {
+  padding: 0 2em;
+}

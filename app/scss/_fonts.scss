@@ -1,0 +1,10 @@
+@font-face {
+	font-family: "BreeSerif";
+	src: url("../fonts/BreeSerif-Regular.otf") format('woff2'),
+		url("../fonts/BreeSerif-Regular.otf") format('woff'),
+		url("../fonts/BreeSerif-Regular.otf") format('truetype');
+}
+
+$text-font: 'Open Sans', sans-serif;
+$footer-font: 'Verdana', sans-serif;
+$title-font: 'BreeSerif';

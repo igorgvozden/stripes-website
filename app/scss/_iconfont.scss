@@ -1,0 +1,59 @@
+@font-face {
+	font-family: "myfont";
+	src: url('../../fonts/myfont.woff2') format('woff2'),
+		url('../../fonts/myfont.woff') format('woff'),
+		url('../../fonts/myfont.ttf') format('truetype');
+}
+
+@mixin icon-styles {
+	font-family: "myfont";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == darrow {
+		$char: "\E001";
+	}
+	@if $filename == fontello {
+		$char: "\E002";
+	}
+	@if $filename == hamburger {
+		$char: "\E003";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-darrow {
+	@include icon(darrow);
+}
+.icon-fontello {
+	@include icon(fontello);
+}
+.icon-hamburger {
+	@include icon(hamburger);
+}
